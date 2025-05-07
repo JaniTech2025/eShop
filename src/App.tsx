@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react";
 import { db } from "./config/firestore";
 import { collection, getDocs } from "firebase/firestore";
+import { BrowserRouter, Route, Routes } from "react-router";
+import Home from './pages/Home/Home';
+import Shop from './pages/Shop/Shop';
+import Cart from './pages/Cart/Cart';
+import NavBar from "./Components/Navbar/NavBar";
+import Footer from "./Components/Footer/Footer";
 import Carousel from "./Components/Carousel/Carousel";
+// import Carousel from "./Components/Carousel/Carousel";
 // import AddProductForm from "./Components/AddProductForm";
-// import styles from "./App.module.scss";
+import styles from "./App.module.scss";
 
 type Product = {
   id: string;
@@ -36,27 +43,27 @@ function App() {
   console.log(products);
 
   return (
-    <div>
-      {/* <h1>Lighting Fixtures</h1>
+    <BrowserRouter>
       <div className={styles.container}>
-        {products.map(item => (
-          <div className={styles.card} key={item.id}>
-            <p>{item.name} ${item.price}</p>
-            {item.image && (
-              <img
-                src={item.image}
-                alt={`${item.image} image`}
-              />
-            )}
-            </div>
-        ))}
-      </div> */}
+        <NavBar />
 
-        <Carousel /> 
+        <main className={styles.main}>
 
-      {/* <AddProductForm/> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
 
-    </div>
+        <div>
+          <Carousel />
+        </div>
+
+        </main>
+
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

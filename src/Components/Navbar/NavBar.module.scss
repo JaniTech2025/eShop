@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 50px;
+    width: 100vw;
+    justify-content: flex-end;
+    background-color: grey;
+    gap: 10px;
+
+    .menuitems {
+        display: flex;
+        margin-right: 1rem;
+        gap: 1 rem;
+        color: black;
+
+
+
+    }
+}
