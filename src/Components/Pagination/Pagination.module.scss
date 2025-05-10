@@ -1,0 +1,37 @@
+.paginationWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 40px;
+}
+
+.pageButton {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover:not(:disabled) {
+        background: #f0f0f0;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.active {
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.ellipsis {
+    padding: 6px 8px;
+    color: #666;
+}

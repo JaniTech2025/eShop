@@ -1,0 +1,36 @@
+.cartItem {
+    display: grid;
+    grid-template-columns: 100px 2fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.image {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+}
+
+.name {
+    font-weight: 500;
+}
+
+.quantityControl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.quantityControl button {
+    width: 32px;
+    height: 32px;
+    font-size: 0.7rem;
+}
+
+.price,
+.subtotal {
+    text-align: center;
+}

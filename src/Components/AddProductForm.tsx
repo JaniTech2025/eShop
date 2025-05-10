@@ -93,7 +93,6 @@ export default function AddProductForm() {
       alert("Product added successfully!");
       setForm({
         name: "",
-        // brand: "",
         price: 0,
         inStock: true,
         categories: [],
@@ -115,6 +114,8 @@ export default function AddProductForm() {
   };
 
   return (
+
+    
     <form onSubmit={handleSubmit} style={{ display: "grid", gap: "0.5rem", maxWidth: "400px" }}>
       <input
         name="name"
@@ -123,13 +124,6 @@ export default function AddProductForm() {
         onChange={handleChange}
         required
       />
-      {/* <input
-        name="brand"
-        placeholder="Brand"
-        value={form.brand}
-        onChange={handleChange}
-        required
-      /> */}
       <input
         name="price"
         type="number"
@@ -138,22 +132,19 @@ export default function AddProductForm() {
         onChange={handleChange}
         required
       />
-      {/* <label> */}
         <input
           name="inStock"
           type="checkbox"
           checked={form.inStock}
           onChange={handleChange}
         />
-        {/* In Stock
-      </label> */}
       <input
         name="categories"
         placeholder="Categories (comma separated)"
         value={form.categories.join(", ")}
         onChange={handleChange}
       />
-      <textarea
+      <input
         name="description"
         placeholder="Product Description"
         value={form.description}
@@ -185,12 +176,15 @@ export default function AddProductForm() {
         value={form.material}
         onChange={handleChange}
       />
-        <input
-          name="favourited"
-          type="checkbox"
-          checked={form.favourited}
-          onChange={handleChange}
-        />
+    <label>
+      <input
+        name="favourited"
+        type="checkbox"
+        checked={form.favourited}
+        onChange={handleChange}
+      />
+      Mark as Favourited
+    </label>
       <input
         name="height"
         type="number"
