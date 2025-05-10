@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../context/cart-provider";
-import "./FavouritedProducts.module.scss";
-import { useProducts } from "../../context/product-provider";
+import { useCart } from "../../context/cart-provider.tsx";
 import styles from "./FavouritedProducts.module.scss";
-import Pagination from "../../Components/Pagination/Pagination";
+import { useProducts } from "../../context/product-provider.tsx";
+import Pagination from "../../Components/Pagination/Pagination.tsx";
+
 
 
 const ITEMS_PER_PAGE = 4;
@@ -14,7 +14,8 @@ const FavouritedProducts: React.FC = () => {
   const products = useProducts();
   const { addToCart } = useCart();
 
-  const favouritedProducts = products.filter(product => product.favourited);
+  const favouritedProducts = products  .filter(({ favourited, qty }: { favourited: boolean; qty: number }) => favourited)
+                                       .slice(0,16);
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -29,10 +30,10 @@ const FavouritedProducts: React.FC = () => {
       <div className={styles.headingWrapper}>
         <h2>Top favourites</h2>
       </div>
-      <section className="featured">
-        <div className={styles["product-grid"]}>
+      <section className={styles.featured}>
+        <div className={styles.productgrid}>
           {currentProducts.map(product => (
-            <div className={styles["product-card"]} key={product.id}>
+            <div className={styles.productcard} key={product.id}>
               <img src={product.image} alt={product.name} />
               <h3>{product.name}</h3>
               <p>${product.price.toFixed(2)}</p>

@@ -1,14 +1,8 @@
 import { createContext, useContext, type ReactNode, useState, useEffect } from 'react';
 
 import { fetchLightingFixtures } from '../services/fetchLightingfixtures';
+import {type Product} from "../services/type.ts";
 
-type Product = {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  favourited: boolean;
-};
 
 const ProductsContext = createContext<Product[]>([]);
 

@@ -1,0 +1,28 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 100vh;
+}
+
+.mainContent {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cartHeader {
+    display: grid;
+    grid-template-columns: 100px 2fr 1fr 1fr 1fr;
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+    padding-bottom: 0.5rem;
+}
+
+.carttotal {
+    margin-left: 105rem;
+
+}

@@ -1,4 +1,5 @@
 // import React, { useEffect, useState } from "react";
+import React from "react";
 import { CarouselDisplay } from "./CarouselDisplay";
 
 export default function Carousel() {

@@ -4,16 +4,16 @@ import styles from "./CartItem.module.scss";
 
 interface CartItemProps {
   product: CartItemType;
-  quantity: number;
+  qty: number;
 }
 
-const CartItem: React.FC<CartItemProps> = ({ product, quantity }) => {
+const CartItem: React.FC<CartItemProps> = ({ product, qty }) => {
   const { updateQuantity, removeFromCart } = useCart();
 
-  const handleIncrease = () => updateQuantity(product.id, quantity + 1);
+  const handleIncrease = () => updateQuantity(product.id, qty + 1);
   const handleDecrease = () => {
-    if (quantity > 1) {
-      updateQuantity(product.id, quantity - 1);
+    if (qty > 1) {
+      updateQuantity(product.id, qty - 1);
     } else {
       removeFromCart(product.id);
     }
@@ -25,11 +25,11 @@ const CartItem: React.FC<CartItemProps> = ({ product, quantity }) => {
       <div className={styles.name}>{product.name}</div>
       <div className={styles.quantityControl}>
         <button onClick={handleDecrease}>−</button>
-        <span>{quantity}</span>
+        <span>{qty}</span>
         <button onClick={handleIncrease}>+</button>
       </div>
       <div className={styles.price}>${product.price.toFixed(2)}</div>
-      <div className={styles.subtotal}>${(product.price * quantity).toFixed(2)}</div>
+      <div className={styles.subtotal}>${(product.price * qty).toFixed(2)}</div>
     </div>
   );
 };
