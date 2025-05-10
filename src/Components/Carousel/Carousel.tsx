@@ -3,16 +3,17 @@ import { CarouselDisplay } from "./CarouselDisplay";
 
 export default function Carousel() {
 
-    const imageUrls: string[] = [
-        "https://www.w3schools.com/bootstrap5/la.jpg",
-        "https://www.w3schools.com/bootstrap5/chicago.jpg",
-        "https://www.w3schools.com/bootstrap5/ny.jpg",
-        "https://www.w3schools.com/howto/img_nature_wide.jpg",
-        "https://www.w3schools.com/howto/img_snow_wide.jpg"      ];
+  const imageUrls: string[] = [
+    "../../src/images/image1.jpg",
+    "../../src/images/image2.jpg",
+    "../../src/images/image3.jpg",
+    "../../src/images/image4.jpg",
+    "../../src/images/image5.jpg",
+   ];
 
-
-      return(
+  console.log(imageUrls);
+  return(
       <CarouselDisplay images={imageUrls} />
-     )
+  )
 
 }

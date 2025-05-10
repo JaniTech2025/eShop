@@ -1,35 +1,31 @@
-import React, { createContext, type ReactNode } from 'react';
-import useQuery from '../hooks/useQuery';
-import { getAllProducts } from '../services/lighting-services';
+import { createContext, useContext, type ReactNode, useState, useEffect } from 'react';
 
-interface LightingContextType {
-  lightingData: any; 
-  error: any;
-  isFail: boolean;
-  isLoading: boolean;
-  isSuccess: boolean;
-}
+import { fetchLightingFixtures } from '../services/fetchLightingfixtures';
 
-interface LightingProviderProps {
-  children: ReactNode;
-}
-
-export const LightingContext = createContext<LightingContextType | null>(null);
-
-const LightingProviderProps: React.FC<LightingProviderProps> = ({ children }) => {
-  const {
-    data: lightingData,
-    error,
-    isFail,
-    isLoading,
-    isSuccess,
-  } = useQuery({ fetchFn: getAllProducts });
-
-  return (
-    <LightingContext.Provider value={{ lightingData, error, isFail, isLoading, isSuccess }}>
-      {children}
-    </LightingContext.Provider>
-  );
+type Product = {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  favourited: boolean;
 };
 
-export default LightingContext;
+const ProductsContext = createContext<Product[]>([]);
+
+export const useProducts = () => {
+  return useContext(ProductsContext);
+};
+
+export const ProductsProvider = ({ children }: { children: ReactNode }) => {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    fetchLightingFixtures(setProducts);
+  }, []);
+
+  return (
+    <ProductsContext.Provider value={products}>
+      {children}
+    </ProductsContext.Provider>
+  );
+};

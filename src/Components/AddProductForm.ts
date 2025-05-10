@@ -5,7 +5,6 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 // Define the Product type
 interface Product {
   name: string;
-//   brand: string;
   price: number;
   inStock: boolean;
   categories: string[];
@@ -14,12 +13,13 @@ interface Product {
   voltage: number;
   color: string;
   material: string;
+  favourited: boolean,
   dimensions: {
     height: number;
     width: number;
     depth: number;
   };
-  imageUrl: string;
+  image: string;
   sku: string;
   createdAt: any;
   updatedAt: any;
@@ -37,32 +37,31 @@ export default function AddProductForm() {
     voltage: 40,
     color: "Gold",
     material: "Nickel",
+    favourited: false,
     dimensions: {
       height: 10,
       width: 19,
       depth: 10
     },
-    imageUrl: "",
+    image: "",
     sku: "",
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp()
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, type } = e.target;
-
+   const { name, value, type, checked } = e.target;
     if (name === "categories") {
       // Handle categories as a comma-separated list
       setForm(prev => ({
         ...prev,
         categories: value.split(",").map(cat => cat.trim())
       }));
-    } else if (name === "inStock") {
-      // Handle the checkbox as a boolean
-      setForm(prev => ({
-        ...prev,
-        // inStock: checked
-      }));
+    } else if (name === "inStock" || name === "favourited") {
+    setForm(prev => ({
+      ...prev,
+      [name]: checked
+    }));
     } else if (["height", "width", "depth"].includes(name)) {
       // Handle dimensions as individual fields
       setForm(prev => ({
@@ -104,7 +103,8 @@ export default function AddProductForm() {
         color: "",
         material: "",
         dimensions: { height: 0, width: 0, depth: 0 },
-        imageUrl: "",
+        favourited: false,
+        image: "",
         sku: "",
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp()
@@ -139,12 +139,12 @@ export default function AddProductForm() {
         required
       />
       {/* <label> */}
-        {/* <input
+        <input
           name="inStock"
           type="checkbox"
-        //   checked={form.inStock}
+          checked={form.inStock}
           onChange={handleChange}
-        /> */}
+        />
         {/* In Stock
       </label> */}
       <input
@@ -185,6 +185,12 @@ export default function AddProductForm() {
         value={form.material}
         onChange={handleChange}
       />
+        <input
+          name="favourited"
+          type="checkbox"
+          checked={form.favourited}
+          onChange={handleChange}
+        />
       <input
         name="height"
         type="number"
@@ -195,8 +201,8 @@ export default function AddProductForm() {
       <input
         name="width"
         type="number"
-        placeholder="Width (cm)"
         value={form.dimensions.width}
+        placeholder="Width (cm)"
         onChange={handleChange}
       />
       <input
@@ -207,9 +213,9 @@ export default function AddProductForm() {
         onChange={handleChange}
       />
       <input
-        name="imageUrl"
+        name="image"
         placeholder="Image URL"
-        value={form.imageUrl}
+        value={form.image}
         onChange={handleChange}
       />
       <input
