@@ -8,17 +8,16 @@ import CartItem from "../../Components/CartItem/CartItem";
 const Cart: React.FC = () => {
   const {cartItems} = useCart();
 
-  console.log("Items", cartItems);
+  console.log("Cart Items", cartItems);
 
 const getTotal = () => {
-  return cartItems.reduce((total, item) => total + item.price * (item.qty ?? 1), 0);
+  return cartItems.reduce((total, item) => total + item.variants?.[0].price * (item.qty ?? 1), 0);
 };
   return(
     <div className={styles.pageContainer}>
       <h2> Your shopping cart </h2>
               {cartItems.length > 0 && (
           <div className={styles.cartHeader}>
-            <span>Image</span>
             <span>Name</span>
             <span>Quantity</span>
             <span>Price</span>

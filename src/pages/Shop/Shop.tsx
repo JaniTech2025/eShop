@@ -38,10 +38,10 @@ const StockAvailableProducts: React.FC = () => {
       <section className="featured">
         <div className={styles["product-grid"]}>
           {currentProducts.map(product => (
-            <div className={styles.productcard} key={product.id}>
-              <img src={product.image} alt={product.name} />
+            <div className={styles.productcard} key={product.sku}>
+              <img src={product.variants?.[0].image} alt={product.name} />
               <h3>{product.name}</h3>
-              <p>${product.price}</p>
+              <p>${product.variants[0].price}</p>
               <button
                 onClick={() => {
                   addToCart(product);

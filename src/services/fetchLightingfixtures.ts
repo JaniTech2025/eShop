@@ -5,15 +5,18 @@ import { type Product } from "../services/type";
 export const fetchLightingFixtures = async (setProducts: (item: Product[]) => void) => {
     const querySnapshot = await getDocs(collection(db, "lighting"));
     const items: Product[] = querySnapshot.docs.map(doc => {
-      const data = doc.data() as { name: string; price: number; quantity: number; image: string, favourited: boolean };
+      const data = doc.data();
+
       return {
         id: doc.id,
         name: data.name,
-        price: data.price,
-        image: data.image, 
         favourited: data.favourited,
-        quantity: data.quantity
-      };
+        qty: data.qty,
+        variants: data.variants,
+        sku: data.sku,
+        createdAt: data.createdAt,
+        updatedAt: data.updatedAt
+    };
     });
   setProducts(items);
 

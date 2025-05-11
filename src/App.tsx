@@ -9,7 +9,7 @@ import NavBar from "./Components/Navbar/NavBar";
 import Footer from "./Components/Footer/Footer";
 import { type Product } from "./services/type";
 // import Carousel from "./Components/Carousel/Carousel";
-// import { BatchAddProducts } from "./Components";
+import BatchAddProducts from "./Components/batchUpdate.tsx";
 // import AddProductForm from "./Components/AddProductForm.tsx";
 import styles from "./App.module.scss";
 import { fetchLightingFixtures } from "./services/fetchLightingfixtures";
@@ -54,10 +54,21 @@ function App() {
         </BrowserRouter>
       </CartProvider>
     </ProductsProvider>
+    // <>
+    // <BatchAddProducts/>
+    // </>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
 
 
 

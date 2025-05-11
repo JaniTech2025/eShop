@@ -1,5 +1,6 @@
 import {  useState, type JSX } from "react";
 import styles from "./Carousel.module.scss";
+import React from "react";
 
 type CarouselDisplayProps = {
   images: string[];
