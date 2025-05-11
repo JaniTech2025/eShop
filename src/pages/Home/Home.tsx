@@ -1,6 +1,7 @@
 import classes from './Home.module.scss';
 import {CarouselDisplay} from "../../Components/Carousel/CarouselDisplay";
 import FavouritedProducts from '../../Components/FavouritedProducts/FavouritedProducts';
+import ProductsGrid from '../../Components/ProductsGrid/ProductsGrid';
 
 export default function Home() {
 
@@ -16,7 +17,8 @@ export default function Home() {
   return (
     <main className={classes.container}>
       <div><CarouselDisplay images={carouselimages} /></div>
-      <FavouritedProducts />
+      <div><ProductsGrid/></div>
+      <div><FavouritedProducts /></div>
     </main>
   );
 }

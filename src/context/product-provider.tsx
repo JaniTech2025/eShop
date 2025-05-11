@@ -13,6 +13,8 @@ export const useProducts = () => {
 export const ProductsProvider = ({ children }: { children: ReactNode }) => {
   const [products, setProducts] = useState<Product[]>([]);
 
+
+
   useEffect(() => {
     fetchLightingFixtures(setProducts);
   }, []);

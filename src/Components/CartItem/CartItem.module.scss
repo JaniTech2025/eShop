@@ -38,3 +38,19 @@
 .subtotal {
     text-align: center;
 }
+
+.trashIcon {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    /* Adjust icon size */
+    color: black;
+    /* Trashcan icon color */
+    transition: color 0.3s ease;
+}
+
+.trashIcon:hover {
+    color: #cc0000;
+    /* Darker red on hover */
+}

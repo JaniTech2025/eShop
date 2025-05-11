@@ -13,6 +13,7 @@ export type Product = {
   favourited: boolean;
   qty: number;
   variants: {
+    qty: number;
     colour: string;
     image: string;
     price: number;

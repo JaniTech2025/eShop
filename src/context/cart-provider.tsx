@@ -1,14 +1,21 @@
 import { createContext, useContext, useState, type ReactNode } from 'react';
 import { type Product } from '../services/type.ts'; 
 
-// Extend Product with quantity for cart purposes
-export type CartItem = Product & { qty: number };
+export type CartItem = Product & { 
+    qty: number;
+    selectedVariant: {
+    qty: any;
+    colour: string;
+    image: string;
+    price: number;
+  };
+ };
 
 interface CartContextType {
   cartItems: CartItem[];
-  addToCart: (product: Product) => void;
-  removeFromCart: (id: string) => void;
-  updateQuantity: (id: string, qty: number) => void;
+  addToCart: (product: Product & { selectedVariant: CartItem['selectedVariant'] }) => void;
+  removeFromCart: (id: string, variantColour: string) => void;
+  updateQuantity: (id: string, variantColour: string, qty: number) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -24,30 +31,55 @@ export const useCart = () => {
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  const addToCart = (product: Product) => {
-    setCartItems((prevItems) => {
-      const existingItem = prevItems.find(item => item.id === product.id);
-      if (existingItem) {
+const addToCart = (product: Product & { selectedVariant: CartItem['selectedVariant'] }) => {
+  setCartItems((prevItems) => {
+    const existingItem = prevItems.find(
+      item => item.id === product.id && item.selectedVariant.colour === product.selectedVariant.colour
+    );
+
+    const stockQty = product.selectedVariant.qty;
+
+    if (existingItem) {
+      if (existingItem.qty < stockQty) {
         return prevItems.map(item =>
-          item.id === product.id
-            ? { ...item, qty: item.qty + 1 }
+          item.id === product.id && item.selectedVariant.colour === product.selectedVariant.colour
+            ? { ...item, qty: item.qty + 1 } 
             : item
         );
       } else {
-        return [...prevItems, { ...product, qty: 1 }];
+        alert(`Only ${stockQty} item(s) available in stock.`);
+        return prevItems; 
       }
-    });
+    } else {
+      return [...prevItems, { ...product, qty: 1 }];
+    }
+  });
+};
+
+
+
+  const removeFromCart = (id: string, variantColour: string) => {
+    setCartItems(prevItems =>
+      prevItems.filter(item => !(item.id === id && item.selectedVariant.colour === variantColour))
+    );
   };
 
-  const removeFromCart = (id: string) => {
-    setCartItems((prevItems) => prevItems.filter(item => item.id !== id));
-  };
 
-  const updateQuantity = (id: string, qty: number) => {
+    const updateQuantity = (id: string, variantColour: string, qty: number) => {
     setCartItems(prev =>
-      prev.map(item =>
-        item.id === id ? { ...item, qty } : item
-      )
+      prev.map(item => {
+        if (item.id === id && item.selectedVariant.colour === variantColour) {
+          const stockQty = item.selectedVariant.qty;  
+          
+          if (qty <= stockQty) {
+             return { ...item, qty };
+          } else {
+             alert(`Only ${stockQty} item(s) available in stock.`);
+            return item; 
+          }
+        }
+        return item;
+      })
     );
   };
 
