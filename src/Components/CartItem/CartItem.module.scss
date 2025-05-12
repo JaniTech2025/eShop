@@ -1,56 +1,101 @@
-.cartItem {
-    display: grid;
-    grid-template-columns: 75px 1fr 1fr 1fr 1fr;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid #ccc;
+.itemcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
+.cartItem {
+    display: grid;
+    grid-template-columns: 75px 1fr 1fr 1fr 1fr auto;
+    align-items: center;
+    gap: 1rem;
 
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr; // stack all items
+    }
+}
+
+.imageWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    grid-column: span 1;
+
+    @media (max-width: 768px) {
+        grid-column: span 2;
+    }
+}
 
 .image {
     width: 100%;
-    height: 200px;
+    max-width: 120px;
+    height: auto;
     object-fit: cover;
     border-radius: 8px;
 }
 
 .name {
+    text-align: center;
     font-weight: 500;
-    align-self: flex-end;
 }
+
 
 .quantityControl {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.3rem;
-}
+    gap: 0.5rem;
 
-.quantityControl button {
-    width: 32px;
-    height: 32px;
-    font-size: 0.7rem;
+    button {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        cursor: pointer;
+    }
 }
 
 .price,
 .subtotal {
     text-align: center;
+    text-wrap: wrap;
 }
+
+@media (max-width: 768px) {
+    .cartItem {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        text-align: center;
+    }
+
+    .imageWrapper,
+    .name,
+    .quantityControl,
+    .price,
+    .subtotal,
+    .trashIcon {
+        grid-column: span 2;
+    }
+
+    .quantityControl {
+        justify-content: center;
+    }
+
+    .price,
+    .subtotal {
+        text-align: center;
+    }
+}
+
 
 .trashIcon {
+    text-align: center;
     background: transparent;
     border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    /* Adjust icon size */
+    font-size: 1.4rem;
     color: black;
-    /* Trashcan icon color */
     transition: color 0.3s ease;
-}
 
-.trashIcon:hover {
-    color: #cc0000;
-    /* Darker red on hover */
-}
+    &:hover {
+        color: #cc0000;
+    }

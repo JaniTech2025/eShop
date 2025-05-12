@@ -1,20 +1,16 @@
 import styles from './Shop.module.scss';
-// import { useState } from 'react';
-// import { useNavigate } from "react-router";
+
 import { useProducts } from "../../context/product-provider";
 import { useCart } from '../../context/cart-provider';
-// import Pagination from "../../Components/Pagination/Pagination";
-// import { type Product } from '../../services/type';
+
 import StockAvailableProducts from '../../Components/StockAvailableProducts/StockAvailableProducts';
 
-// Define a new type that extends Product and adds selectedVariant
 
 
 const Shop: React.FC = () => {
   const { addToCart } = useCart();
   const products = useProducts();
 
-  // const stockAvailableProducts = products.filter(product => !product.favourited);
 const stockAvailableProducts = products
   .map(product => ({
     ...product,
@@ -25,6 +21,7 @@ const stockAvailableProducts = products
 
   console.log("reached here");
   return (
+    <div className={styles.container}>
     <section className={styles.shoppage}>
       <h2>Shop</h2>
       <StockAvailableProducts
@@ -32,6 +29,7 @@ const stockAvailableProducts = products
         onAddToCart={addToCart}
       />
     </section>
+    </div>
   );
 };
 

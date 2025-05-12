@@ -15,6 +15,13 @@ export function CarouselDisplay({ images }: CarouselDisplayProps): JSX.Element {
 
   return (
     <div className={styles.container}>
+            <div className={styles.containertext}>
+            <h3>.Lights On.</h3>
+            <p>Our commitment to sustainability, affordability, and exceptional customer service 
+              ensures that you'll find the ideal lighting that not only fits your style but also
+               your values. Explore our collections today and transform your space with the perfect lighting!</p>
+            <p>Find Your Perfect Light.</p>
+          </div>
       <div className={styles.carousel}>
         <ul
           className={styles.carousel__items}
@@ -39,15 +46,11 @@ export function CarouselDisplay({ images }: CarouselDisplayProps): JSX.Element {
               />
             </div>
           ))}
-          <div className={styles.containertext}>
-            Lights On.
-            <p>Our commitment to sustainability, affordability, and exceptional customer service 
-              ensures that you'll find the ideal lighting that not only fits your style but also
-               your values. Explore our collections today and transform your space with the perfect lighting!</p>
-            <p>Find Your Perfect Light.</p>
-          </div>
+
         </div>
+
       </div>
+
     </div>
   );
 }

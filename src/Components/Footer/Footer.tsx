@@ -1,10 +1,11 @@
+import React from 'react';
 import classes from './Footer.module.scss';
 
 export default function Footer() {
   return (
     <>
     <div className={classes.container}>
-       <p>Developed by Jani 2025</p>
+       <p>Copyrights JaniTech2025</p>
     </div>
     </>
   );

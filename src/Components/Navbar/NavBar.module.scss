@@ -8,20 +8,27 @@
     width: 100%;
     background-color: #f8f9fa;
     display: flex;
-    justify-content: flex-end; // Align items to the right
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: grey;
-    ;
+
 
     .menuitems {
         display: flex;
+        flex-wrap: wrap;
         gap: 1rem;
+        padding-right: 20px;
+        padding-bottom: 10px;
+        padding-top: 5px;
 
         a {
             text-decoration: none;
+            font-size: 1.2rem;
             color: #333;
             font-weight: 500;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1rem rem 1 rem;
             margin-right: 0.2rem;
             border-radius: 8px;
             transition: background-color 0.3s ease;

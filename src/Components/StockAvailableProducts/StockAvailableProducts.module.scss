@@ -1,6 +1,7 @@
 .productgrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, 240px);
+    justify-content: center;
     gap: 2rem;
     padding: 2rem;
 }
@@ -9,7 +10,8 @@
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    padding: 1.5rem;
+    padding: 0.2rem;
+    margin-right: 2%;
     text-align: center;
     transition: transform 0.3s ease;
 
@@ -54,14 +56,15 @@
     }
 }
 
-.swatches {
+.variants {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
     margin-top: 0.5rem;
+    margin-right: 1rem;
 }
 
-.swatch {
+.variant {
     width: 24px;
     height: 24px;
     border-radius: 50%;

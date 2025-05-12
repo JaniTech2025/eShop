@@ -57,7 +57,10 @@ const CartItem: React.FC<CartItemProps> = ({ product, qty }) => {
   };
 
   return (
+
+    <div className={styles.itemcontainer}>
     <div className={styles.cartItem}>
+      <div className={styles.imageWrapper}>
       <img
         src={imageError ? fallback : variant.image}
         alt={product.name}
@@ -65,6 +68,7 @@ const CartItem: React.FC<CartItemProps> = ({ product, qty }) => {
         className={styles.image}
       />
       <div className={styles.name}>{product.name}</div>
+      </div>
       <div className={styles.quantityControl}>
         <button onClick={handleDecrease}>−</button>
         <span>{qty}</span>
@@ -75,6 +79,7 @@ const CartItem: React.FC<CartItemProps> = ({ product, qty }) => {
         <FontAwesomeIcon icon={faTrashAlt} />
       </span>
       <div className={styles.subtotal}>${(variant.price * qty).toFixed(2)}</div>
+    </div>
     </div>
   );
 };

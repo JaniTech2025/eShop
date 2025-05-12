@@ -15,10 +15,12 @@ export default function Home() {
    ];
 
   return (
-    <main className={classes.container}>
-      <div><CarouselDisplay images={carouselimages} /></div>
-      <div><ProductsGrid/></div>
-      <div><FavouritedProducts /></div>
-    </main>
+    <div className={classes.container}>
+      <main>
+        <div><CarouselDisplay images={carouselimages} /></div>
+        <div><ProductsGrid/></div>
+        <div><FavouritedProducts /></div>
+      </main>
+    </div>
   );
 }

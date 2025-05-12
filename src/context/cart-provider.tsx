@@ -16,6 +16,7 @@ interface CartContextType {
   addToCart: (product: Product & { selectedVariant: CartItem['selectedVariant'] }) => void;
   removeFromCart: (id: string, variantColour: string) => void;
   updateQuantity: (id: string, variantColour: string, qty: number) => void;
+  clearCart: () => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -64,6 +65,11 @@ const addToCart = (product: Product & { selectedVariant: CartItem['selectedVaria
     );
   };
 
+  
+   const clearCart = () =>{
+    setCartItems([]);
+   }
+
 
     const updateQuantity = (id: string, variantColour: string, qty: number) => {
     setCartItems(prev =>
@@ -84,7 +90,7 @@ const addToCart = (product: Product & { selectedVariant: CartItem['selectedVaria
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateQuantity }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateQuantity, clearCart }}>
       {children}
     </CartContext.Provider>
   );

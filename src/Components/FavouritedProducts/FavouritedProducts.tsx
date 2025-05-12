@@ -4,8 +4,8 @@ import { useCart } from "../../context/cart-provider.tsx";
 import styles from "./FavouritedProducts.module.scss";
 import { useProducts } from "../../context/product-provider.tsx";
 
-const ITEMS_PER_PAGE = 1;
-const AUTO_SCROLL_INTERVAL = 5000; // 5 seconds
+const ITEMS_PER_PAGE = 3;
+const AUTO_SCROLL_INTERVAL = 5000;
 
 const FavouritedProducts: React.FC = () => {
   const [imageError, setImageError] = useState(false);
@@ -15,7 +15,7 @@ const FavouritedProducts: React.FC = () => {
   const products = useProducts();
   const { addToCart } = useCart();
 
-  const favouritedProducts = products.filter(product => product.favourited).slice(0, 16);
+  const favouritedProducts = products.filter(product => product.favourited);
   const fallback = "https://res.cloudinary.com/dwou0gtus/image/upload/v1746474280/645787_lgqgr8.webp";
 
   const handleImageError = () => {
@@ -32,17 +32,6 @@ const FavouritedProducts: React.FC = () => {
     );
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setStartIndex(prev => {
-        const next = prev + ITEMS_PER_PAGE;
-        return next >= favouritedProducts.length ? 0 : next;
-      });
-    }, AUTO_SCROLL_INTERVAL);
-
-    return () => clearInterval(interval);
-  }, [favouritedProducts.length]);
-
   const currentProducts = favouritedProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
   return (
@@ -50,7 +39,7 @@ const FavouritedProducts: React.FC = () => {
       <div className={styles.headingWrapper}>
         <h2>Our top picks</h2>
       </div>
-      <section className={styles.featured}>
+      <section>
         <div className={styles.carouselWrapper}>
           <button
             className={styles.arrowButton}
@@ -68,7 +57,7 @@ const FavouritedProducts: React.FC = () => {
                   alt={product.name}
                   onError={handleImageError}
                 />
-                <h3>{product.name}</h3>
+                <h2>{product.name}</h2>
               </div>
             ))}
           </div>

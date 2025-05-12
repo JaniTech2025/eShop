@@ -1,11 +1,12 @@
 import styles from './Cart.module.scss';
-import React from 'react';
+import React, { useState } from 'react';
 // import { useCart } from "../../context/cart-provider";
 import { type CartItem as CartItemType, useCart } from '../../context/cart-provider';
 import CartItem from "../../Components/CartItem/CartItem";
 
 const Cart: React.FC = () => {
-  const { cartItems } = useCart();
+  const { cartItems, clearCart, removeFromCart } = useCart();
+  const [enable, setEnable] = useState(false);
 
   console.log("Cart Items", cartItems);
 
@@ -17,8 +18,10 @@ const Cart: React.FC = () => {
     }, 0);
   };
 
-  function removeFromCart(id: string, colour: string): void {
-    throw new Error('Function not implemented.');
+
+  function handleClick(event: React.MouseEvent<HTMLButtonElement>): void {
+    clearCart();
+    setEnable(false);
   }
 
   return (
@@ -26,7 +29,7 @@ const Cart: React.FC = () => {
       <h2>Your shopping cart</h2>
 
       {cartItems.length > 0 && (
-        <div className={styles.cartHeader}>
+        <div className={styles.cartheader}>
           <span>Name</span>
           <span>Quantity</span>
           <span>Price</span>
@@ -51,7 +54,7 @@ const Cart: React.FC = () => {
 
       <div className={styles.carttotal}>
         <h3>Total: ${getTotal().toFixed(2)}</h3>
-        <button disabled>CheckOut</button>
+        <button disabled={cartItems.length === 0} onClick={handleClick}>CheckOut</button>
       </div>
     </div>
   );

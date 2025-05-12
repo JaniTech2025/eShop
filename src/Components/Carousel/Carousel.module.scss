@@ -1,29 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
 .container {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 1rem;
+    // padding: 1rem;
     box-sizing: border-box;
     background-color: rgba(40, 30, 50, 0.7);
     position: relative;
-    margin-bottom: 50px;
+    // margin-bottom: 50px;
 
 
     .carousel {
-        margin-right: 50%;
+        display: flex;
+        flex-wrap: wrap;
         width: 100%;
+        // margin-left: 15%;
+        justify-content: center;
         max-width: 600px;
-        overflow: hidden;
-        border-radius: none;
+        min-width: 280px;
         background-color: #1e1b29;
         box-shadow: 0 4px 12px rgb(60, 48, 62);
+        overflow: hidden;
 
         &__items {
             display: flex;
             transition: transform 0.5s ease-in-out;
             width: 100%;
-            padding: 0;
             margin: 0;
             list-style: none;
         }
@@ -36,7 +44,8 @@
         &__image {
             width: 100%;
             height: auto;
-            display: block;
+            display: flex;
+            flex-wrap: wrap;
             object-fit: cover;
             border-radius: none;
         }
@@ -64,12 +73,12 @@
     }
 
     .containertext {
-        position: absolute;
-        size: 2rem;
-        top: 30%;
-        margin-left: 70%;
-        width: 35%;
-        transform: translateY(-50%);
+        display: flex;
+        flex-wrap: wrap;
+        size: 1rem;
+        // top: 30%;
+        width: 40%;
+        // transform: translateY(-50%);
         color: white;
         padding: 2%;
         border-radius: none;

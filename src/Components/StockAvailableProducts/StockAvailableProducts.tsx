@@ -26,7 +26,7 @@ const StockAvailableProducts: React.FC<Props> = ({ products, onAddToCart }) => {
   };
 
   return (
-    <section className="featured">
+    <section>
       <div className={styles.productgrid}>
         {currentProducts.map(product => {
           const selectedVariantIndex = selectedVariants.get(product.id) ?? 0;
@@ -42,11 +42,11 @@ const StockAvailableProducts: React.FC<Props> = ({ products, onAddToCart }) => {
               <p>Colour: {selectedVariant.colour}</p>
               <p>Price: ${selectedVariant.price}</p>
 
-              <div className={styles.swatches}>
+              <div className={styles.variants}>
                 {product.variants.map((variant, index) => (
                   <div
                     key={index}
-                    className={`${styles.swatch} ${index === selectedVariantIndex ? styles.selected : ''}`}
+                    className={`${styles.variant} ${index === selectedVariantIndex ? styles.selected : ''}`}
                     style={{ backgroundColor: variant.colour }}
                     onClick={() => handleVariantSelect(product.id, index)}
                     title={variant.colour}
@@ -57,7 +57,8 @@ const StockAvailableProducts: React.FC<Props> = ({ products, onAddToCart }) => {
               <button
                 onClick={() => {
                   onAddToCart({ ...product, selectedVariant });
-                  navigate("/cart");
+                  //navigate("/cart");
+                  alert(product.name + " added to cart");
                 }}
               >
                 Add to Cart
