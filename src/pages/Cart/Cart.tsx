@@ -22,6 +22,7 @@ const Cart: React.FC = () => {
   function handleClick(event: React.MouseEvent<HTMLButtonElement>): void {
     clearCart();
     setEnable(false);
+    alert("Items checked out");
   }
 
   return (
