@@ -13,11 +13,8 @@
     padding: 0.2rem;
     margin-right: 2%;
     text-align: center;
-    transition: transform 0.3s ease;
 
-    &:hover {
-        transform: translateY(-6px);
-    }
+
 
     img {
         width: 100%;
@@ -27,7 +24,7 @@
         border-radius: 8px;
     }
 
-    h3 {
+    h2 {
         font-size: 1.2rem;
         margin: 0.5rem 0;
         color: #333;
@@ -42,16 +39,14 @@
     button {
         margin-top: 1rem;
         padding: 0.6rem 1.2rem;
-        background-color: #2b7cff;
+        background-color: rgba(40, 30, 50, 0.5);
         color: white;
         border: none;
         border-radius: 8px;
         font-weight: 500;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
 
         &:hover {
-            background-color: #155bd5;
+            background-color: rgba(40, 30, 50, 0.7);
         }
     }
 }
@@ -68,9 +63,7 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    border: 2px solid transparent;
-    cursor: pointer;
-    transition: border 0.3s ease;
+    border: 2px solid rgba(40, 30, 50);
 
     &.selected {
         border-color: #2b7cff;

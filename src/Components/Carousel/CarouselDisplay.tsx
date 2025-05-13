@@ -9,6 +9,8 @@ type CarouselDisplayProps = {
 export function CarouselDisplay({ images }: CarouselDisplayProps): JSX.Element {
   const [currentSlide, setCurrentSlide] = useState<number>(0); 
 
+  console.log(images);
+
   const handleDotClick = (index: number): void => {
     setCurrentSlide(index);
   };

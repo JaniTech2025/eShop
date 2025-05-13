@@ -9,9 +9,9 @@
     background-color: #f8f9fa;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: flex-end;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: grey;
+    background-color: rgba(40, 30, 50);
 
 
     .menuitems {
@@ -22,11 +22,12 @@
         padding-right: 20px;
         padding-bottom: 10px;
         padding-top: 5px;
+        margin-right: 5rem;
 
         a {
             text-decoration: none;
             font-size: 1.2rem;
-            color: #333;
+            color: #FFFFFF;
             font-weight: 500;
             padding: 0.5rem 1rem rem 1 rem;
             margin-right: 0.2rem;

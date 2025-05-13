@@ -31,9 +31,9 @@ export default function Modal({ children, onClose, heading }: ModalProps) {
   }, []);
 
   return (
-    <div className={classes.modal_background} onClick={onBackgroundClick}>
-      <div className={classes.modal_content} onClick={onContentClick}>
-        <div className={classes.modal_heading}>
+    <div className={classes.modalbackground} onClick={onBackgroundClick}>
+      <div className={classes.modalcontent} onClick={onContentClick}>
+        <div className={classes.modalheading}>
           <h2>{heading}</h2>{' '}
           <button
             style={{ padding: 0, backgroundColor: 'transparent' }}

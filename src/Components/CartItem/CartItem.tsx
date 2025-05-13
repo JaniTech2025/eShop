@@ -57,7 +57,6 @@ const CartItem: React.FC<CartItemProps> = ({ product, qty }) => {
   };
 
   return (
-
     <div className={styles.itemcontainer}>
     <div className={styles.cartItem}>
       <div className={styles.imageWrapper}>

@@ -24,7 +24,7 @@
         justify-content: center;
         max-width: 600px;
         min-width: 280px;
-        background-color: #1e1b29;
+        background-color: rgba(40, 30, 50, 0.7);
         box-shadow: 0 4px 12px rgb(60, 48, 62);
         overflow: hidden;
 
@@ -75,12 +75,13 @@
     .containertext {
         display: flex;
         flex-wrap: wrap;
-        size: 1rem;
+        font-size: 1.5rem;
+        align-self: center;
         // top: 30%;
         width: 40%;
         // transform: translateY(-50%);
-        color: black;
-        padding: 2%;
+        color: #FFFFFF;
+        padding: 1%;
         border-radius: none;
     }
 

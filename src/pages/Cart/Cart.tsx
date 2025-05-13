@@ -3,12 +3,17 @@ import React, { useState } from 'react';
 // import { useCart } from "../../context/cart-provider";
 import { type CartItem as CartItemType, useCart } from '../../context/cart-provider';
 import CartItem from "../../Components/CartItem/CartItem";
+import Modal from '../../Components/Modal/Modal';
 
 const Cart: React.FC = () => {
   const { cartItems, clearCart, removeFromCart } = useCart();
   const [enable, setEnable] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   console.log("Cart Items", cartItems);
+
+  // const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   const getTotal = () => {
     return cartItems.reduce((total, item) => {
@@ -22,7 +27,8 @@ const Cart: React.FC = () => {
   function handleClick(event: React.MouseEvent<HTMLButtonElement>): void {
     clearCart();
     setEnable(false);
-    alert("Items checked out");
+    setIsModalOpen(true);
+    // alert("Items checked out");
   }
 
   return (
@@ -57,6 +63,11 @@ const Cart: React.FC = () => {
         <h3>Total: ${getTotal().toFixed(2)}</h3>
         <button disabled={cartItems.length === 0} onClick={handleClick}>CheckOut</button>
       </div>
+        {isModalOpen && (
+         <Modal heading="Congratulations" onClose={closeModal}>
+          <p>Your items have been checked out</p>
+        </Modal>
+      )}
     </div>
   );
 };
