@@ -1,54 +1,75 @@
-# React + TypeScript + Vite
+# E-Commerce App for lighting products
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive and user-friendly e-commerce application built with **React + TypeScript**, powered by **Cloudinary** for image management and **Firestore** for backend data storage.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
+[![React](https://img.shields.io/badge/React-20232a?style=for-the-badge&logo=react&logoColor=61dafb)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)](https://cloudinary.com/)
+[![Firestore](https://img.shields.io/badge/Firestore-ffca28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/docs/firestore)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Learnings
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- I learnt how to use useContext as a single source of truth to manage global state for both the product list and the cart.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- I got comfortable working with React Router to handle browser navigation and dynamic routes.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Using fallback values in components to keep the UI stable, especially when data might be undefined or loading.
+
+- Using pagination to break up and display fetched search results effectively.
+
+---
+
+## Features
+
+- Displays **product variants** based on selected **colour**
+- Uses **FontAwesome icons** for enhanced UI
+- **Carousel** for:
+  - Lifestyle images
+  - Featured products on homepage
+- Adds to cart only if the product:
+  - Is within **stock limits**
+
+---
+
+## Screenshots
+
+### Homepage
+
+![Homepage Screenshot](./src/images/screenshots/screenshot1.png)
+
+### Product Details + Variants
+
+![Product Screenshot](./src/images/screenshots/product-detail.png)
+
+### Cart Functionality
+
+![Cart Screenshot](./src/images/screenshots/screenshot3.png)
+
+## Future Improvements
+
+Add login and manage user profiles
+
+Add Admin and panel for managing products
+
+Search and filter functionality
+
+Add payment
+
+````
+
+---
+
+## Deployment Instructions
+
+### Build the App
+
+```bash
+npm run build
+
+````
