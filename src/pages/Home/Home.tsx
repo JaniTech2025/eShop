@@ -7,11 +7,11 @@ export default function Home() {
 
   
   const carouselimages: string[] = [
-    "../../src/images/lifestyle1.jpg",
-    "../../src/images/lifestyle2.jpg",
-    "../../src/images/lifestyle3.jpg",
-    "../../src/images/lifestyle4.jpg",
-    "../../src/images/lifestyle5.jpg",
+    "./public/images/lifestyle1.jpg",
+    "./public/images/lifestyle2.jpg",
+    "./public/images/lifestyle3.jpg",
+    "./public/images/lifestyle4.jpg",
+    "./public/images/lifestyle5.jpg",
    ];
 
   return (
