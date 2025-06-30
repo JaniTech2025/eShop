@@ -2,6 +2,23 @@
 
 A responsive and user-friendly e-commerce application built with **React + TypeScript**, powered by **Cloudinary** for image management and **Firestore** for backend data storage.
 
+Live site: https://janitech2025.github.io/eShop/
+
+---
+
+## Features
+
+- Home page displays paginated product images and lifestyle images & featured products in carousel displays
+- Shop page displays products details along with variant selections and an add to cart button
+- Cart page displays products added to the cart or empty page if there is no selection
+- Displays **product variants** based on selected **colour**
+- Uses **FontAwesome icons** for enhanced UI
+- **Carousel** for:
+  - Lifestyle images
+  - Featured products on homepage
+- Adds to cart only if the product:
+  - Is within **stock limits**
+
 ---
 
 ## Tech Stack
@@ -26,18 +43,6 @@ A responsive and user-friendly e-commerce application built with **React + TypeS
 ### Cart Functionality
 
 ![Cart Screenshot](/images/screenshot3.png)
-
-## Features
-
-- Displays **product variants** based on selected **colour**
-- Uses **FontAwesome icons** for enhanced UI
-- **Carousel** for:
-  - Lifestyle images
-  - Featured products on homepage
-- Adds to cart only if the product:
-  - Is within **stock limits**
-
----
 
 ## Learnings
 
