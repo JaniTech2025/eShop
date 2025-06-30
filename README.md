@@ -13,30 +13,6 @@ A responsive and user-friendly e-commerce application built with **React + TypeS
 
 ---
 
-## Learnings
-
-- I learnt how to use useContext as a single source of truth to manage global state for both the product list and the cart.
-
-- I got comfortable working with React Router to handle browser navigation and dynamic routes.
-
-- Using fallback values in components to keep the UI stable, especially when data might be undefined or loading.
-
-- Using pagination to break up and display fetched search results effectively.
-
----
-
-## Features
-
-- Displays **product variants** based on selected **colour**
-- Uses **FontAwesome icons** for enhanced UI
-- **Carousel** for:
-  - Lifestyle images
-  - Featured products on homepage
-- Adds to cart only if the product:
-  - Is within **stock limits**
-
----
-
 ## Screenshots
 
 ### Homepage
@@ -50,6 +26,30 @@ A responsive and user-friendly e-commerce application built with **React + TypeS
 ### Cart Functionality
 
 ![Cart Screenshot](./public/images/screenshot3.png)
+
+## Features
+
+- Displays **product variants** based on selected **colour**
+- Uses **FontAwesome icons** for enhanced UI
+- **Carousel** for:
+  - Lifestyle images
+  - Featured products on homepage
+- Adds to cart only if the product:
+  - Is within **stock limits**
+
+---
+
+## Learnings
+
+- I learnt how to use useContext as a single source of truth to manage global state for both the product list and the cart.
+
+- I got comfortable working with React Router to handle browser navigation and dynamic routes.
+
+- Using fallback values in components to keep the UI stable, especially when data might be undefined or loading.
+
+- Using pagination to break up and display fetched search results effectively.
+
+---
 
 ## Future Improvements
 
