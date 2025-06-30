@@ -17,15 +17,15 @@ A responsive and user-friendly e-commerce application built with **React + TypeS
 
 ### Homepage
 
-![Homepage Screenshot](./public/images/screenshot1.png)
+![Homepage Screenshot](/images/screenshot1.png)
 
 ### Product Details + Variants
 
-![Product Screenshot](./public/images/screenshot2.png)
+![Product Screenshot](/images/screenshot2.png)
 
 ### Cart Functionality
 
-![Cart Screenshot](./public/images/screenshot3.png)
+![Cart Screenshot](/images/screenshot3.png)
 
 ## Features
 
