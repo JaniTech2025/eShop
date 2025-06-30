@@ -32,17 +32,37 @@ Live site: https://janitech2025.github.io/eShop/
 
 ## Screenshots
 
-### Homepage
+## Homepage
 
 ![Homepage Screenshot](screenshot1.png)
 
-### Product Details + Variants
+## Product Details + Variants
 
 ![Product Screenshot](screenshot2.png)
 
-### Cart Functionality
+## Cart Functionality
 
 ![Cart Screenshot](screenshot3.png)
+
+## Product Type Definition
+
+```ts
+export type Product = {
+  id: string;
+  name: string;
+  favourited: boolean;
+  qty: number;
+  variants: {
+    qty: number;
+    colour: string;
+    image: string;
+    price: number;
+  }[];
+  sku: string;
+  createdAt: any;
+  updatedAt: any;
+};
+
 
 ## Learnings
 
@@ -66,7 +86,7 @@ Search and filter functionality
 
 Add payment
 
-````
+```
 
 ---
 
@@ -77,4 +97,4 @@ Add payment
 ```bash
 npm run build
 
-````
+```
