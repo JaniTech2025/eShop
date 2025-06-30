@@ -45,7 +45,7 @@ A responsive and user-friendly e-commerce application built with **React + TypeS
 
 ### Product Details + Variants
 
-![Product Screenshot](./public/images/product-detail.png)
+![Product Screenshot](./public/images/screenshot2.png)
 
 ### Cart Functionality
 
