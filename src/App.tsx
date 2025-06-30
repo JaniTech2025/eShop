@@ -37,7 +37,7 @@ function App() {
   return (
     <ProductsProvider>
       <CartProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/eShop">
           <div className={styles.container}>
             <NavBar />
 
