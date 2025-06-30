@@ -34,15 +34,15 @@ Live site: https://janitech2025.github.io/eShop/
 
 ### Homepage
 
-![Homepage Screenshot](/images/screenshot1.png)
+![Homepage Screenshot](screenshot1.png)
 
 ### Product Details + Variants
 
-![Product Screenshot](/images/screenshot2.png)
+![Product Screenshot](screenshot2.png)
 
 ### Cart Functionality
 
-![Cart Screenshot](/images/screenshot3.png)
+![Cart Screenshot](screenshot3.png)
 
 ## Learnings
 
