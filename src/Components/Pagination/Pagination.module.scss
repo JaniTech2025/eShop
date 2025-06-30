@@ -14,6 +14,7 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background ease 0.5s;
+    color: black;
 
     &:hover:not(:disabled) {
         background: #f0f0f0;
